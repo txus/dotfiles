@@ -1,18 +1,18 @@
 -- Read the docs: https://www.lunarvim.org/docs/configuration
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
--- Forum: https://www.reddit.com/r/lunarvim/
--- Discord: https://discord.com/invite/Xb9B4Ny
+-- Forum: https://www.reddit.com/r/lunarvim/ Discord: https://discord.com/invite/Xb9B4Ny
 --
 -- install plugins
 --
 --
 lvim.plugins = {
   "ChristianChiarulli/swenv.nvim",
+  'AndreM222/copilot-lualine',
   "stevearc/dressing.nvim",
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
-  "dccsillag/magma-nvim",
+  { "dccsillag/magma-nvim", build = ':UpdateRemotePlugins' },
   "mrjones2014/nvim-ts-rainbow",
   {
     "pwntester/octo.nvim",
@@ -155,17 +155,16 @@ vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true 
 vim.g.magma_image_provider = "kitty"
 vim.g.magma_automatically_open_output = false
 
+vim.cmd 'autocmd BufRead,BufNewFile *.ipynb,*.py set filetype=python'
+
 lvim.builtin.which_key.mappings["m"] = {
   name = "Magma",
   i = { "<cmd>MagmaInit<CR>", "init" },
   o = { "<cmd>MagmaEvaluateOperator<CR>", "evaluate operator", expr = true },
   l = { "<cmd>MagmaEvaluateLine<CR>", "evaluate line" },
+  c = { "<cmd>MagmaReevaluateCell<CR>", "reevaluate selected cell" },
   r = { "<cmd>MagmaRestart!<CR>", "restart" },
-  x = { "<cmd>MagmaInterrupt<CR>", "interrupt" }
-}
-
-lvim.builtin.which_key.vmappings["m"] = {
-  name = "Magma",
-  v = { "<cmd>MagmaEvaluateVisual<CR>", "evaluate visual" },
-  c = { "<cmd>MagmaDefineCell<CR>", "define cell" }
+  x = { "<cmd>MagmaInterrupt<CR>", "interrupt" },
+  v = { "<cmd>MagmaEvaluateVisual<CR>", "evaluate visual", mode = "v" },
+  s = { "<cmd>MagmaShowOutput<CR>", "show output" }
 }
