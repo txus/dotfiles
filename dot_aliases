@@ -1,0 +1,74 @@
+# ~/.aliases
+
+# Alias definitions
+
+# Git Aliases
+alias gs='git status'
+alias ga='git add -p'
+alias gogo='git add --all && git commit --amend && git push -f'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gf='git fetch'
+alias gl='git log'
+alias gl1='git log --oneline'
+alias glg='git log --graph --oneline --decorate --all'
+alias gm='git merge'
+alias gp='git push'
+alias gpl='git pull'
+alias gs='git status'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gsh='git show'
+alias gcl='git clone'
+alias gst='git stash'
+alias gstp='git stash pop'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+
+# Python Aliases
+alias py='python3'
+alias ipy='ipython'
+alias jn='jupyter notebook'
+alias jp='jupyter lab'
+alias pymem='mprof run'
+alias pyprof='kernprof -l -v'
+
+# Docker Aliases for NVIDIA
+alias dkr='docker run'
+alias dkri='docker run -it'
+alias dkrn='docker run --gpus all -it'
+alias dkrc='docker run --gpus all --rm -it'
+alias dkrcb='docker run --gpus all --rm -it --runtime=nvidia --ipc=host --shm-size 16G'
+
+# CUDA Aliases
+alias cudaver='nvcc --version'
+alias cudadevs='nvidia-smi'
+
+# Miscellaneous Aliases
+alias ll='ls -la'
+alias venv='python3 -m venv .venv && source .venv/bin/activate'
+
+# Functions
+
+# Function to monitor GPU usage
+watchgpu() {
+    watch -n 1 nvidia-smi
+}
+
+# Function to search git history
+glogsearch() {
+    git log --all --grep="$1"
+}
+
+# Prompt customization (optional)
+PS1='\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] $ '
+
+# macOS specific aliases and functions
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+fi

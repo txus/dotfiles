@@ -1,0 +1,7 @@
+# ~/.zshrc
+
+# Source the common aliases and functions
+if [ -f ~/.common_aliases ]; then
+    . ~/.common_aliases
+fi
+
