@@ -65,9 +65,6 @@ glogsearch() {
     git log --all --grep="$1"
 }
 
-# Prompt customization (optional)
-PS1='\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] $ '
-
 # macOS specific aliases and functions
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"

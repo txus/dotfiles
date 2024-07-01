@@ -1,7 +1,8 @@
 #!/bin/bash
 
-echo 'Installing Neovim...'
-sudo apt -y install neovim python3-neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+mkdir -p ~/.local/bin
+mv nvim.appimage ~/.local/bin/nvim
 
 echo 'Installing TPM...'
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
