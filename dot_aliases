@@ -5,7 +5,7 @@
 # Git Aliases
 alias gs='git status'
 alias ga='git add -p'
-alias gogo='git add --all && git commit --amend && git push -f'
+alias gogo='git add --all && git commit --amend && git push -f txus'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gd='git diff'
