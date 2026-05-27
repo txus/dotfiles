@@ -12,3 +12,6 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+. "$HOME/.cargo/env"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi

@@ -3,7 +3,15 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        metal = {
+          cmd = { "metal-lsp" },
+          filetypes = { "metal" },
+          root_markers = { ".git" },
+        },
+        ty = {},
         pylsp = {
+          mason = false,
+          autostart = false,
           settings = {
             pylsp = {
               plugins = {
@@ -35,6 +43,10 @@ return {
           mason = false,
           autostart = false,
         },
+        pyrefly = {
+          mason = false,
+          autostart = false,
+        }
       },
     },
   }
